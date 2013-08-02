@@ -1,0 +1,13 @@
+<h1><%= @post.title %></h1>
+<p><%= image_tag(@post.pic_url) if @post.pic? %></p>
+<p><%= @post.price %></p>
+<p><%= @post.city.name %></p>
+<p><%= @post.description %></p>
+<p><%= @post.email %></p>
+
+
+<%= link_to "All Posts", posts_path %> |
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= button_to 'Delete', @post, method: :delete,
+    data: { confirm: "Are you sure?" } %>
+

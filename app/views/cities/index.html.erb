@@ -1,0 +1,15 @@
+<h1>All the CITIES</h1>
+
+<% @city.each do |city| %>
+  <div class="city">
+    <h2><%= link_to city.name, city %></h2>
+    <div class="actions">
+      <%= link_to "Edit", edit_city_path(city) %> |
+      <%= link_to "Destroy", city, confirm: 'Are you sure?', method: :delete %>
+    </div>
+  </div>
+<% end %>
+<br>
+<br>
+<p><%= link_to "New City", new_city_path %></p>
+<%= link_to 'All Posts', posts_path %>
