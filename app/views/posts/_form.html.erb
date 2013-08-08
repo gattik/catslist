@@ -1,6 +1,5 @@
-
-
 <%= simple_form_for @post do |f| %>
+
   <%= f.input :title, label: "Your post's title please" %>
   <%= f.file_field :pic, check_box: :remove_pic, label: :remove_pic %>
   <%= f.input :price %>

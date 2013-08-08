@@ -3,6 +3,11 @@ Catslist::Application.routes.draw do
 
   resources :cities
 
+  # match '', to: "cities#show", constraints: {subdomain: /.+/}
+
+  get '', to: "cities#show", constraints: {subdomain: /.+/}
+
+
   root "cities#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

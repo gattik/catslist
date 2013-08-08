@@ -2,11 +2,17 @@ class CitiesController < ApplicationController
 
 	def new
 		@city = City.new
+    # @post = @city.posts.create
 	end
 
+  def find
+    @city = City.new
+  end
 
-	def edit 
-	end
+
+	def edit
+    @city = City.find(params[:id])
+  end
 
   def create
     @city = City.new(city_params)
@@ -14,15 +20,14 @@ class CitiesController < ApplicationController
          redirect_to cities_path
       else
         render 'new'
-      end
     end
+  end
 
- 
 
 	def update
     @city = City.find(params[:id])
     if @city.update_attributes(params[:post])
-      redirect_to root_url, notice: "Successfully updated blog."
+      redirect_to root_url, notice: "Successfully updated City."
     else
       render :edit
     end
@@ -46,6 +51,6 @@ class CitiesController < ApplicationController
 
 
   def city_params
-    params.require(:city).permit(:name)
+    params.require(:city).permit(:name, :subdomain, :title)
   end
 end
