@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+
+
   def index
     @posts = Post.includes(:city).all
   end
