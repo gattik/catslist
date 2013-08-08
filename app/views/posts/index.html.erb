@@ -1,17 +1,19 @@
+<div class="container">
+
 <h1>Current Posts</h1>
 
 <% @posts.each do |post| %>
 
 <div><%= link_to post.title, post_path(post) %></div>
 
-
-
 <% end %>
 
 <br>
 
-<%= button_to "New Post", new_post_path(@post) %>
+<%= button_to "New Post", new_post_path(@post), class: "btn btn-primary btn-lg" %>
 
 <br>
 
-<%= link_to "All Cities", cities_path %> 
+<%= link_to "All Cities", cities_path, class: "btn btn-default" %> 
+
+</div>

@@ -1,3 +1,5 @@
+<div class="container">
+
 <h1>All the CITIES</h1>
 
 <% @city.each do |city| %>
@@ -11,5 +13,7 @@
 <% end %>
 <br>
 <br>
-<p><%= button_to "New City", new_city_path %></p>
-<%= button_to 'All Posts', posts_path %>
+<p><%= button_to "New City", new_city_path, class: "btn btn-primary btn-lg" %></p>
+<%= button_to 'All Posts', posts_path, class: "btn btn-default" %>
+
+</div>
