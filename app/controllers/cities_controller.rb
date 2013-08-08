@@ -2,7 +2,7 @@ class CitiesController < ApplicationController
 
 	def new
 		@city = City.new
-    # @post = @city.posts.create
+    @post = @city.posts.create
 	end
 
   def find
@@ -38,10 +38,9 @@ class CitiesController < ApplicationController
 		@city = City.all
   end
 
-  def show 
-    @city = City.find(params[:id])
+  def show
+  @city = City.find_by_subdomain!(request.subdomain)
   end
-
 
 	def destroy
     @city = City.find(params[:id])

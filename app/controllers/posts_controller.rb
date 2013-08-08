@@ -1,14 +1,18 @@
 class PostsController < ApplicationController
-  def index
-    @posts = Post.includes(:city).all
-  end
+
 
   def show
     @post = Post.find(params[:id])
   end
 
+  def index
+    @posts = Post.includes(:city).all
+  end
+
+
   def new
     @post = Post.new
+    
   end
 
   def create
@@ -43,9 +47,14 @@ class PostsController < ApplicationController
     end
 
   def post_params
-    params.require(:post).permit(:title, :pic, :remove_pic, :description, :price, :email, :city_id)
+    params.require(:post).permit(:title, :pic, :remove_pic, :description, :price, :email, :city_id, :subdomain)
   end
 end
 
+private
+
+def load_blog
+  @city = City.find_by_subdomain!(request.subdomain)
+end
 
 

@@ -1,5 +1,6 @@
 <%= simple_form_for @post do |f| %>
 
+
   <%= f.input :title, label: "Your post's title please" %>
   <%= f.file_field :pic, check_box: :remove_pic, label: :remove_pic %>
   <%= f.input :price %>
@@ -7,6 +8,8 @@
   <%= f.input :email , placeholder: 'user@domain.com'%>
   <p>City</p>
   <%= collection_select(:post, :city_id, City.all, :id, :name) %> 
+  <p>Category</p>
+  <%= collection_select(:post, :category_id, Category.all, :id, :name) %> 
   <%= f.submit "submit", class: "btn btn-primary" %>
 
 <% end %>

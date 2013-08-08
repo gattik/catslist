@@ -2,7 +2,7 @@
 
 <% @city.each do |city| %>
   <div class="city">
-    <h2><%= link_to city.name, city %></h2>
+     <h2><%= link_to city.name, root_url(subdomain: city.subdomain) %></h2>
     <div class="actions">
       <%= link_to "Edit", edit_city_path(city) %> |
       <%= link_to "Destroy", city, confirm: 'Are you sure?', method: :delete %>
@@ -12,4 +12,4 @@
 <br>
 <br>
 <p><%= button_to "New City", new_city_path %></p>
-<%= button_to 'All Posts', posts_path %>
+

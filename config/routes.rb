@@ -1,7 +1,17 @@
 Catslist::Application.routes.draw do
-  resources :posts
+
+  resources :categories
 
   resources :cities
+
+  resources :posts
+
+#   constraints :subdomain => 'city' do
+#     scope '', :subdomain => 'city' do
+#         resources :posts
+#   end
+# end
+
 
   # match '', to: "cities#show", constraints: {subdomain: /.+/}
 
