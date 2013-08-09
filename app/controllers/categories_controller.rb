@@ -5,8 +5,10 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @city = City.where(subdomain: request.subdomain).limit(1)
+    @posts = @city.posts
     @category = Category.find(params[:id])
-    @city = Category.find(params[:id]).subdomain
+    @subdomain = request.subdomain
   end
 end
 
