@@ -2,7 +2,9 @@
 
 <div id="posts">
 <% @category.posts.each do |post| %>
+  <% if @category.post.city_id == @city %>
   <h2><%= link_to post.title, post_path(post) %></h2>
+  <% end %>
 <% end %>
 
 <br>
