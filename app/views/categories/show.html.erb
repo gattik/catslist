@@ -1,0 +1,9 @@
+<h1><%= @category.name %></h1>
+
+<div id="posts">
+<% @category.posts.each do |post| %>
+  <h2><%= link_to post.title, post_path(post) %></h2>
+<% end %>
+
+<br>
+<%= button_to "New Post", new_post_path(@post), class: "btn btn-primary btn-lg" %> 

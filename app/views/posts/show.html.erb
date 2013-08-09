@@ -6,8 +6,13 @@
 <p><%= @post.email %></p>
 
 
-<%= link_to "All Cities", cities_path %> |
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Edit', edit_post_path(@post), class: "btn btn-warning" %>  
+<br><br>
 <%= button_to 'Delete', @post, method: :delete,
-    data: { confirm: "Are you sure?" } %>
+    data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+<br>
+<%= button_to "New Post", new_post_path(@post), class: "btn btn-primary btn-lg" %> 
+<br>
+<%= button_to "All Cities", root_url(subdomain: false), method: :get, class:  "btn btn-default" %> 
+
 

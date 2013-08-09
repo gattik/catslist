@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    
   end
 
   def index
@@ -19,9 +20,11 @@ class PostsController < ApplicationController
       if @post.save
          redirect_to posts_path
       else
-        render 'new'
+          @post.category = Category.find(:category_id)
+         render :new
       end
     end
+
 
 
   def edit
@@ -46,7 +49,7 @@ class PostsController < ApplicationController
     end
 
   def post_params
-    params.require(:post).permit(:title, :pic, :remove_pic, :description, :price, :email, :city_id, :subdomain)
+    params.require(:post).permit(:title, :pic, :remove_pic, :description, :price, :email, :city_id, :subdomain, :category_id)
   end
 end
 

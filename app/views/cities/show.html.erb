@@ -1,15 +1,13 @@
 <h1><%= @city.name %></h1>
 
-<div id="posts">
-<% @city.posts.each do |post| %>
-  <h2><%= link_to post.title, post_path(post) %></h2>
+<% @category.each do |category| %>
+  <div class="category">
+     <h2><%= link_to category.name, category_path(category) %></h2>
 <% end %>
 
 
-<%= button_to "New Post", new_post_path(@post) %>
 
-<%= link_to "New Post", new_post_path(@post) %>|
-<%= link_to "Edit Post" , edit_post_path(@post) %> |
-<%= button_to 'Delete Post', @post, method: :delete,
-    data: { confirm: "Are you sure?" } %>
-<%= button_to "All Cities", root_url(subdomain: false), method: :get %> 
+<br>
+<%= button_to "New Post", new_post_path(@post), class: "btn btn-primary btn-lg" %> <br>
+
+<%= button_to "All Cities", root_url(subdomain: false), method: :get, class:  "btn btn-default" %> 

@@ -16,10 +16,10 @@ class CitiesController < ApplicationController
 
   def create
     @city = City.new(city_params)
-      if @city.save
-         redirect_to cities_path
-      else
-        render 'new'
+    if @city.save
+      redirect_to cities_path
+    else
+      render :new
     end
   end
 
@@ -40,6 +40,8 @@ class CitiesController < ApplicationController
 
   def show
   @city = City.find_by_subdomain!(request.subdomain)
+  @category = Category.all
+
   end
 
 	def destroy
@@ -50,6 +52,6 @@ class CitiesController < ApplicationController
 
 
   def city_params
-    params.require(:city).permit(:name, :subdomain, :title)
+    params.require(:city).permit(:name, :subdomain, :title, :category_id)
   end
 end
